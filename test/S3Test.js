@@ -92,7 +92,7 @@ describe('S3', () => {
 
     async.waterfall([(callback) => {
       // save the file
-      s3.save({path: sourceFile}, callback)
+      s3.save({ path: sourceFile }, callback)
     }, (url, callback) => {
       s3Url = url
 
@@ -103,7 +103,7 @@ describe('S3', () => {
       expect(response.statusCode).to.equal(200)
 
       // remove the file
-      s3.remove({url: s3Url}, callback)
+      s3.remove({ url: s3Url }, callback)
     }, (message, callback) => {
       // make sure it's not there any more
       request.head(s3Url, callback)
@@ -130,7 +130,7 @@ describe('S3', () => {
     }
 
     const S3 = proxyquire('../lib/S3', {
-      'knox': {
+      knox: {
         createClient: () => {
           return client
         }
@@ -151,9 +151,9 @@ describe('S3', () => {
 
     const storagePath = 'foo'
 
-    client.putFile.callsArgWith(3, null, {req: {url: storagePath}})
+    client.putFile.callsArgWith(3, null, { req: { url: storagePath } })
 
-    s3.save({path: sourceFile}, (error, storedAt) => {
+    s3.save({ path: sourceFile }, (error, storedAt) => {
       expect(error).to.not.exist
       expect(storagePath).to.equal(storedAt)
       expect(client.putFile.getCall(0).args[1]).to.equal(uploadPath)
@@ -170,7 +170,7 @@ describe('S3', () => {
     }
 
     const S3 = proxyquire('../lib/S3', {
-      'knox': {
+      knox: {
         createClient: () => {
           return client
         }
@@ -186,7 +186,7 @@ describe('S3', () => {
 
     const storagePath = 'foo'
 
-    client.putFile.callsArgWith(3, null, {req: {url: storagePath}})
+    client.putFile.callsArgWith(3, null, { req: { url: storagePath } })
 
     s3.save({
       path: sourceFile,
@@ -210,7 +210,7 @@ describe('S3', () => {
     }
 
     const S3 = proxyquire('../lib/S3', {
-      'knox': {
+      knox: {
         createClient: () => {
           return client
         }
@@ -226,9 +226,9 @@ describe('S3', () => {
 
     const storagePath = 'foo'
 
-    client.putFile.callsArgWith(3, null, {req: {url: storagePath}})
+    client.putFile.callsArgWith(3, null, { req: { url: storagePath } })
 
-    s3.save({path: sourceFile}, (error, storedAt) => {
+    s3.save({ path: sourceFile }, (error, storedAt) => {
       expect(error).to.not.exist
       expect(storagePath).to.equal(storedAt)
       expect(client.putFile.getCall(0).args[1]).to.equal('/node_js_logo.png')
@@ -243,7 +243,7 @@ describe('S3', () => {
     }
 
     const S3 = proxyquire('../lib/S3', {
-      'knox': {
+      knox: {
         createClient: () => {
           return client
         }
@@ -274,7 +274,7 @@ describe('S3', () => {
     }
 
     const S3 = proxyquire('../lib/S3', {
-      'knox': {
+      knox: {
         createClient: () => {
           return client
         }
@@ -305,7 +305,7 @@ describe('S3', () => {
     }
 
     const S3 = proxyquire('../lib/S3', {
-      'knox': {
+      knox: {
         createClient: () => {
           return client
         }
@@ -332,7 +332,7 @@ describe('S3', () => {
 
   it('should check the statusCode of the response', (done) => {
     const S3 = proxyquire('../lib/S3', {
-      'knox': {
+      knox: {
         createClient: () => {
           return {}
         }
