@@ -25,21 +25,21 @@
     "coveralls": "istanbul cover _mocha && cat ./coverage/lcov.info | coveralls"
   },
   "dependencies": {
-    "check-types": "^7.0.0",
+    "check-types": "^11.1.2",
     "knox": "https://github.com/joniba/knox.git"
   },
   "devDependencies": {
-    "async": "^2.1.4",
-    "chai": "^3.0.0",
-    "coveralls": "^2.8",
-    "istanbul": "^0.4.3",
-    "mocha": "^3.2.0",
-    "mongoose": "^4.0.2",
-    "pre-commit": "^1.0.10",
-    "proxyquire": "^1.0",
-    "request": "^2.34",
-    "sinon": "^1.9",
-    "standard": "^8.6.0"
+    "async": "^3.1.1",
+    "chai": "^4.2.0",
+    "coveralls": "^3.0",
+    "istanbul": "^0.4.5",
+    "mocha": "^7.0.1",
+    "mongoose": "^5.9.1",
+    "pre-commit": "^1.2.2",
+    "proxyquire": "^2.1",
+    "request": "^2.88",
+    "sinon": "^8.1",
+    "standard": "^14.3.1"
   },
   "pre-commit": [
     "test:coverage:check",
